@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white border-2 border-gray-300 p-6 max-w-md mx-auto">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Add New Category</h1>
+            
+            <form method="POST" action="/categories/new" class="space-y-4">
+                <div>
+                    <label for="category-name" class="block text-gray-700 font-semibold mb-2">Category Name</label>
+                    <input type="text" id="category-name" placeholder="groceries" name="category_name" 
+                           class="w-full border-2 border-gray-300 px-3 py-2 text-gray-800">
+                </div>
+                
+                <div>
+                    <input type="submit" value="Add Category" 
+                           class="w-full bg-white border-2 border-gray-300 px-4 py-2 text-blue-600 font-semibold">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
