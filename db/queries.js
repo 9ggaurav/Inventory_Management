@@ -1,5 +1,6 @@
 const pool = require("./pool");
 
+
 const selectAllCategories = async() => {
     const { rows } = await pool.query(`
         SELECT * FROM categories;

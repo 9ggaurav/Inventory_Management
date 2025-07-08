@@ -3,6 +3,7 @@ const path = require("node:path");
 const homeRouter = require("./routes/homeRouter");
 const allCategoriesRouter = require("./routes/allCategoriesRouter");
 const allItemsRouter = require("./routes/allItemsRouter");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
