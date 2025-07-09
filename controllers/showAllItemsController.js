@@ -2,7 +2,6 @@ const db = require("../db/queries");
 
 const getAllItems = async(req, res) => {
     const items = await db.selectAllItems();
-    // console.log(items);
     res.render("showAllItems", {
         items: items,
         heading: "All Items",
@@ -37,11 +36,24 @@ const deleteItemPost = async(req, res) => {
 }
 
 const updateItemGet = async(req, res) => {
-    let item
+    const id = req.params.id;
+    const item = await db.selectItemByItemId(id);
+    const categories = await db.selectAllCategories();
+    res.render("updateItem", {
+        item_id: item[0].item_id,
+        item_name: item[0].item_name,
+        item_quantity: item[0].item_quantity,
+        category_id: item[0].category_id,
+        categories : categories
+    })
 }
 
 const updateItemPost = async(req, res) => {
-
+    let {item_name, item_quantity, category_id} = req.body;
+    const {id} = req.params;
+    item_quantity = Number(item_quantity);
+    await db.updateItem(item_name, item_quantity, category_id, id);
+    res.redirect("/items");
 }
 
 module.exports = {
